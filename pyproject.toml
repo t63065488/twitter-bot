@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "twitter_bot"
+authors = [
+    {name = "t63065488"},
+]
+description = "A simple bot to parse and post a tweet."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "tweepy==4.14.0"
+]
+dynamic = ["version"]
