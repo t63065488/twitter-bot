@@ -11,7 +11,6 @@ MAX_TWEET_LEN = int(config.get("MAX_TWEET_LEN", "280"))
 def main(args):
     text = load_and_concat(args)
     tweets = []
-    print("TEXT: " + text)
     if len(text) > MAX_TWEET_LEN:
         logging.info("Tweet exceeds length limit, processing.")
         tweets = process_tweets(text)
@@ -30,8 +29,6 @@ def load_and_concat(paths: list[str]) -> str:
 
 
 def process_tweets(tweets: str) -> list[str]:
-    print("Processing tweets, len: " + str(MAX_TWEET_LEN))
-    print(tweets)
     n = MAX_TWEET_LEN - 10
     template = ("\n\n({current}/{max})")
     processed = [tweets[i:i+n] for i in range(0, len(tweets), n)]

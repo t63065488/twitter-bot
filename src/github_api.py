@@ -12,9 +12,6 @@ class GitHubApi:
         events = [e for e in events if e.type == type and e.created_at > time ]
         return events
     
-    def get_events(self):
-        return self.g.get_user(self.config.get("USERNAME", "")).get_events()
-    
     def get_user_events_as_list(self):
         eventsList = []
         events = self.g.get_user(self.config.get("USERNAME", "")).get_events()
@@ -27,3 +24,6 @@ class GitHubApi:
                 eventsList.extend(toAppend)
             i += 1
         return eventsList
+    
+    def get_repo_name(self, id: str) -> str:
+        return self.g.get_repo(id).full_name
